@@ -18,9 +18,7 @@ jobs:
           version: 6.0.2
       - name: Install dependencies
         run: pnpm install
-      - name: Build 🔧
-        run: pnpm run build
       - name: Publish package on NPM 📦
-        run: npm publish
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+        uses: JS-DevTools/npm-publish@v1
+        with:
+          token: ${{ secrets.NPM_PUBLISH }}
